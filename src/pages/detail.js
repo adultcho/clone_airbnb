@@ -4,7 +4,6 @@ const Detail = () => {
   return (
     <div className="main">
       <h1>detail page</h1>
- 
     </div>
   );
 };
