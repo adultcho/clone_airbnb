@@ -1,9 +1,17 @@
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+
+//page components
+import Main from "./pages/main";
+import Detail from "./pages/detail";
 
 function App() {
   return (
     <div className="App">
-      <h1>클론 시작...화이팅ㅠㅠ</h1>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/Detail" element={<Detail />} />
+      </Routes>
     </div>
   );
 }
