@@ -1,0 +1,10 @@
+/* main page grid 적용 */
+.main {
+  display: grid;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  margin-top: 70px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 33px;
+}
