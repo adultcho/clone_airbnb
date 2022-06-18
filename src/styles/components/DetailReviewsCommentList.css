@@ -1,0 +1,23 @@
+.detail_reviews_comment_list_container {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.detail_more_reviews_btn {
+  background-color: white;
+  padding: 13px 23px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+button:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,29 @@
+.detail_review_score_category_container {
+  display: flex;
+  width: 50%;
+  float: left;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.detail_reviews_score_category_score {
+  display: flex;
+  float: right;
+  align-items: center;
+}
+
+.score_bar {
+  margin-right: 10px;
+  height: 4px;
+  border-radius: 1px;
+}
+
+progress::-webkit-progress-value {
+  background: black;
+}
+
+progress::-webkit-progress-bar {
+  background: gray;
+}
