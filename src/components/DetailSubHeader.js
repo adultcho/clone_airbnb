@@ -8,8 +8,8 @@ function DetailSubHeader() {
   return (
     <div className="detail_sub_header_container">
       {/* 서브헤더 상단 타이틀 부분 */}
+
       <div className="detail_sub_header_title">
-        <button>언어전환키</button>
         <h1 id="detail_sub_header_title_h1">{title}</h1>
       </div>
 
@@ -22,8 +22,8 @@ function DetailSubHeader() {
           </p>
         </div>
         <div className="detail_sub_header_infor_btn">
-          <p>공유하기</p>
-          <p>저장</p>
+          <div>공유하기</div>
+          <div>저장</div>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@
 /* 서브헤더 상단 타이틀 부분 */
 .detail_sub_header_title {
   display: flex;
-  margin-bottom: 10px;
+  align-items: center;
 }
 
 #detail_sub_header_title_h1 {
@@ -24,6 +24,8 @@
 .detail_sub_header_infor {
   display: flex;
   justify-content: space-between;
+  font-size: 16px;
+  font-weight: 800;
 }
 
 .detail_sub_header_infor_review {
@@ -32,6 +34,8 @@
 
 .detail_sub_header_infor_btn {
   display: flex;
+  width: 10%;
+  justify-content: space-between;
 }
 
 .detail_sub_header_infor_text {
