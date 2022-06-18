@@ -1,0 +1,24 @@
+.detail_air_cover_container {
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+  padding: 24px 0;
+  margin-bottom: 24px;
+}
+
+.h1_first {
+  color: rgb(255, 90, 95);
+}
+
+.detail_air_cover_title {
+  display: flex;
+}
+
+.detail_air_cover_text {
+  width: 63%;
+  padding-bottom: 12px;
+}
+
+.detail_air_cover_more_btn {
+  color: black;
+  font-weight: 800;
+}

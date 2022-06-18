@@ -3,6 +3,8 @@ import { useState } from "react";
 import DetailReviewsScoreCategory from "./DetailReviewsScoreCategory";
 import "../styles/components/DetailReviews.css";
 import DetailReviwsCommentList from "./DetailReviwsCommentList";
+import DetailAirCover from "./DetailAirCover";
+import DetailAboutPlace from "./DetailAboutPlace";
 
 function DetailReviews() {
   const [data, setData] = useState();
@@ -34,6 +36,8 @@ function DetailReviews() {
           : null}
       </div>
       <div className="detail_reviews_category_comments">
+        <DetailAirCover />
+        <DetailAboutPlace />
         <DetailReviwsCommentList />
       </div>
     </div>
