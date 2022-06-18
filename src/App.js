@@ -5,12 +5,16 @@ import { Routes, Route } from "react-router-dom";
 import Main from "./pages/main";
 import Detail from "./pages/detail";
 
+import Header from "./components/Header";
+
 function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:postId" element={<Detail />} />
       </Routes>
     </div>
   );
