@@ -29,7 +29,7 @@ const Header = () => {
         airbnb
       </div>
       <div className="header_profile" onClick={openProfileModal}>
-        <BsList style={{ fontSize: "25px" }} />
+        <BsList style={{ fontSize: "23px" }} />
         <MdAccountCircle style={{ fontSize: "35px", color: "gray" }} />
       </div>
 

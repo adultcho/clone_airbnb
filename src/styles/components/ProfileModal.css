@@ -2,7 +2,7 @@
   display: none;
   position: fixed;
   top: 90px;
-  right: 30px;
+  right: calc(5%);
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   z-index: 99;
@@ -55,7 +55,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.profileModal > section > main > div:first-child {
+.profileModal > section > main > div:first-child > span {
   font-weight: bold;
 }
 

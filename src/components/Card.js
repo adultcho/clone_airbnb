@@ -3,24 +3,31 @@ import { useNavigate } from "react-router-dom";
 
 import "../styles/components/Card.css";
 
-const Card = () => {
+const Card = (props) => {
+  // console.log(props);
+
   const navigate = useNavigate();
-  let postId = Math.random(); // postId 임의 생성
+
 
   const moveToDetailPage = () => {
-    navigate("/detail/" + postId);
+    navigate("/detail/" + props.postId);
   };
-
   return (
     <div onClick={moveToDetailPage} className="card_container">
       <div className="card">
-        <div className="card_image"></div>
+        <img src={props.image} className="card_image" alt=""></img>
 
         <div className="card_content">
-          <div><p>San Blas 멕시코</p><span>5.0 ★</span></div>
-          <p>11.472km 거리</p>
-          <p>7월 18일 ~ 23일</p>
-          <p><span>₩258.327</span> /박</p>
+          <div>
+            <p>{props.location}</p>
+            <span>{props.star === "NEW" ? "NEW!" : props.star + " ★"} </span>
+          </div>
+          <p>{props.length}</p>
+          <p>{props.date}</p>
+          <p>
+            <span>{props.price.split("/")[0]} </span>
+            /박
+          </p>
         </div>
       </div>
     </div>
