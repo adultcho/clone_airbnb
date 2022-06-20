@@ -16,3 +16,8 @@
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
+
+.detail_about_place_infor_more_btn {
+  border: none;
+  background-color: white;
+}

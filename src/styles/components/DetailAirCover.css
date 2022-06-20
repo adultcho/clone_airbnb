@@ -11,6 +11,7 @@
 
 .detail_air_cover_title {
   display: flex;
+  margin-bottom: 10px;
 }
 
 .detail_air_cover_text {
@@ -19,6 +20,17 @@
 }
 
 .detail_air_cover_more_btn {
+  border: none;
+  background-color: white;
+}
+
+.detail_air_cover_more_btn > h4 {
   color: black;
   font-weight: 800;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.detail_air_cover_more_btn:hover {
+  cursor: pointer;
 }

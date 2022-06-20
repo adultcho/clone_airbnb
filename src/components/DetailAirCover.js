@@ -1,12 +1,21 @@
 import React from "react";
+import { useState } from "react";
 import "../styles/components/DetailAirCover.css";
+import DetailAirCoverModal from "./DetailAirCoverModal";
 
 function DetailAirCover() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = (callBackParam) => {
+    console.log(callBackParam);
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="detail_air_cover_container">
       <div className="detail_air_cover_title">
         <h1 className="h1_first">에어</h1>
-        <h1 className="h1_second">커버</h1>
+        <h1>커버</h1>
       </div>
       <div className="detail_air_cover_text">
         <p>
@@ -15,9 +24,11 @@ function DetailAirCover() {
           포함됩니다.
         </p>
       </div>
-      <a href="" className="detail_air_cover_more_btn">
-        더 알아보기
-      </a>
+      <button onClick={openModal} className="detail_air_cover_more_btn">
+        <h4>더 알아보기</h4>
+      </button>
+      {console.log(isOpen)}
+      {isOpen ? <DetailAirCoverModal openModalCallBack={openModal} /> : null}
     </div>
   );
 }

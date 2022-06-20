@@ -1,23 +1,36 @@
-.detail_review_score_category_container {
+.detail_reviews_score_category_container {
   display: flex;
-  width: 50%;
-  float: left;
   align-items: center;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  font-size: 16px;
+  justify-content: space-between;
+  line-height: 20px;
+  width: 100%;
+}
+
+.detail_reviews_score_category_name {
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+
+.detail_reviews_score_category_bar {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .detail_reviews_score_category_score {
+  width: 20%;
   display: flex;
-  float: right;
   align-items: center;
+  font-weight: 400;
 }
 
 .score_bar {
   margin-right: 10px;
   height: 4px;
   border-radius: 1px;
+  width: 100px;
 }
 
 progress::-webkit-progress-value {

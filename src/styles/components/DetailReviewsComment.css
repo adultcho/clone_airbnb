@@ -1,14 +1,7 @@
 .detail_reviews_comment {
-  /* display: flex;
-  flex-direction: row-reverse;
-  justify-content: left;
-  align-items: center;
-  box-align: center;
-  background-color: green; */
   display: flex;
   flex-direction: column;
-  width: 50%;
-  float: left;
+  width: 100%;
   margin-bottom: 40px;
 }
 

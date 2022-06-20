@@ -1,8 +1,19 @@
 import React from "react";
+import { useState } from "react";
 import "../styles/components/DetailAboutPlace.css";
+import DetailAboutPlaceModal from "./DetailAboutPlaceModal";
 
 function DetailAboutPlace() {
-  const inforText = `금수산 등산로 중턱에 위치하여 발아래로 굽이치는 산 능선과 산자락들이 한 폭의 산수화를 보는듯 장관이며,
+  const [isOpen, setIsOpen] = useState(false);
+  const [inforText, setInforText] = useState("");
+
+  const openModal = (callBackParam) => {
+    console.log(callBackParam);
+    setIsOpen(!isOpen);
+  };
+
+  React.useEffect(() => {
+    setInforText(`금수산 등산로 중턱에 위치하여 발아래로 굽이치는 산 능선과 산자락들이 한 폭의 산수화를 보는듯 장관이며,
 
     운 좋은 아침에는 발아래 펼쳐지는 운해랑 능선사이로 떠오르는 해돋이는 글로서 표현이 어려울 정도로 경이로운 곳입니다.
     
@@ -46,12 +57,24 @@ function DetailAboutPlace() {
     산자락이고 시골입니다
     여름에는 나방이나 벌레도 있을수 있습니다
     
-    시골의 정취와 자연경관을 좋아하시는 분들에겐 좋을것 같습니다.`;
+    시골의 정취와 자연경관을 좋아하시는 분들에겐 좋을것 같습니다.`);
+  }, []);
 
   return (
     <div className="detail_about_place_container">
       <h1>숙소 정보</h1>
       <div className="detail_about_place_infor_text">{inforText}</div>
+      <button className="detail_about_place_infor_more_btn" onClick={openModal}>
+        더 보기
+      </button>
+      {console.log(isOpen)}
+      {console.log(inforText)}
+      {isOpen ? (
+        <DetailAboutPlaceModal
+          openModalCallBack={openModal}
+          inforText={inforText}
+        />
+      ) : null}
     </div>
   );
 }
