@@ -1,0 +1,36 @@
+.detail_air_cover_container {
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+  padding: 24px 0;
+  margin-bottom: 24px;
+}
+
+.h1_first {
+  color: rgb(255, 90, 95);
+}
+
+.detail_air_cover_title {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.detail_air_cover_text {
+  width: 63%;
+  padding-bottom: 12px;
+}
+
+.detail_air_cover_more_btn {
+  border: none;
+  background-color: white;
+}
+
+.detail_air_cover_more_btn > h4 {
+  color: black;
+  font-weight: 800;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.detail_air_cover_more_btn:hover {
+  cursor: pointer;
+}

@@ -1,9 +1,15 @@
 import React from "react";
+import "../styles/pages/Detail.css";
+import DetailSubHeader from "../components/DetailSubHeader";
+import DetailPhotos from "../components/DetailPhotos";
+import DetailReviews from "../components/DetailReviews";
 
 const Detail = () => {
   return (
-    <div className="main">
-      <h1>detail page</h1>
+    <div className="detail">
+      <DetailSubHeader />
+      <DetailPhotos />
+      <DetailReviews />
     </div>
   );
 };
