@@ -1,30 +1,45 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import Modal from "../components/Modal";
+import axios from 'axios';
+
+//components
+import Card from "../components/Card";
+
+//styles
+import "../styles/pages/Main.css";
 
 const Main = () => {
-  const navigate = useNavigate();
 
-  const moveToDetail = () => {
-    navigate("/detail");
-  };
+  const [state, setState] = React.useState([]);
 
-  const [modalOpen, setModalOpen] = React.useState(false);
+  React.useEffect(() => {
+    axios
+      .get("http://3.39.223.175/api/posts") // back-end server http://13.125.151.93/api/poststudy
+      .then((response) => {
+        console.log(response);
+        setState(response.data.posts);
+      })
+      .catch((response) => {
+        // console.log(response);
+      });
 
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  }, []);
+
+  // console.log(state)
 
   return (
     <div className="main">
-      <h1>main page</h1>
-      <button onClick={moveToDetail}>move detail page</button>
-      <button onClick={openModal}>모달팝업</button>
-
-      <Modal open={modalOpen} close={closeModal} header="Modal heading"></Modal>
+      {state && state.map((state,idx) => (
+          <Card
+          key={idx}
+          postId = {state.postId}
+          image = {state.image}
+          location = {state.location}
+          length = {state.length}
+          date = {state.date}
+          star = {state.star}
+          price = {state.price}
+          />
+        ))}
     </div>
   );
 };
