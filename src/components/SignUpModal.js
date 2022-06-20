@@ -20,7 +20,7 @@ const SignUpModal = (props) => {
     e.preventDefault();
 
     axios
-      .post("http://3.39.223.175/api/signUp", {
+      .post("http://3.39.223.175/api/register", {
         useremail: useremail_ref.current.value,
         nickname: nickname_ref.current.value,
         password: password_ref.current.value,

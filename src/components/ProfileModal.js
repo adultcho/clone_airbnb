@@ -17,6 +17,7 @@ const ProfileModal = (props) => {
   //로그아웃
   const logOut = () => {
     localStorage.removeItem("user-token");
+    localStorage.removeItem("user-email");
     alert("로그아웃 되었습니다.");
     window.location.reload();
   };

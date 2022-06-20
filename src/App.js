@@ -2,8 +2,8 @@ import "./styles/App.css";
 import { Routes, Route } from "react-router-dom";
 
 //page components
-import Main from "./pages/main";
-import Detail from "./pages/detail";
+import Main from "./pages/Main";
+import Detail from "./pages/Detail";
 
 import Header from "./components/Header";
 
