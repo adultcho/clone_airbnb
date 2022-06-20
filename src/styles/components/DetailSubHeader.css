@@ -1,0 +1,44 @@
+.detail_sub_header_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  line-height: 20px;
+  box-sizing: border-box;
+  padding: 0 80px;
+}
+
+/* 서브헤더 상단 타이틀 부분 */
+.detail_sub_header_title {
+  display: flex;
+  align-items: center;
+}
+
+#detail_sub_header_title_h1 {
+  font-size: 26px;
+  font-weight: 600px;
+}
+
+/* 서브헤더 하단 평점, 후기, 공유하기 & 저장 버튼 */
+
+.detail_sub_header_infor {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.detail_sub_header_infor_review {
+  text-decoration: underline;
+}
+
+.detail_sub_header_infor_btn {
+  display: flex;
+  width: 10%;
+  justify-content: space-between;
+}
+
+.detail_sub_header_infor_text {
+  display: flex;
+  font-size: 16px;
+}
