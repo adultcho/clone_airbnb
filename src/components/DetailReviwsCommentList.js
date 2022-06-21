@@ -1,13 +1,29 @@
 import React from "react";
 import { useState } from "react";
-import "../styles/components/DetailReviewsCommentList.css";
+import { useParams } from "react-router-dom";
+
+//component
 import DetailReviewsComment from "./DetailReviewsComment";
 import DetailReviewsScoreCategory from "./DetailReviewsScoreCategory";
 import DetailReviewsModal from "./DetailReviewsModal";
 
+//redux
+import { useDispatch } from "react-redux";
+import { loadCommentDB } from "../redux/modules/comment";
+
+//style
+import "../styles/components/DetailReviewsCommentList.css";
+
 function DetailReviwsCommentList() {
+  const dispatch = useDispatch();
+  const { postId } = useParams();
+
   // 모달 설정
   const [isOpen, setIsOpen] = useState(false);
+
+  React.useEffect(() => {
+    dispatch(loadCommentDB(postId));
+  }, []);
 
   const openModal = (callBackParam) => {
     setIsOpen(!isOpen);
@@ -37,6 +53,7 @@ function DetailReviwsCommentList() {
               return (
                 <div className="detail_reviews_category_box">
                   <DetailReviewsScoreCategory
+                 key={index}
                     category={l}
                     score={data.score[index]}
                   />

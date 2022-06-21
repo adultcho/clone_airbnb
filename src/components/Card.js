@@ -1,20 +1,25 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+//style
 import "../styles/components/Card.css";
 
 const Card = (props) => {
-  // console.log(props);
+  // console.log(props.image);
 
   const navigate = useNavigate();
 
+
+  const postId = props.postId;
+
+
   const moveToDetailPage = () => {
-    navigate("/detail/" + props.postId);
+    navigate(`/detail/${postId}`);
   };
   return (
     <div onClick={moveToDetailPage} className="card_container">
       <div className="card">
-        <img src={props.image} className="card_image" alt=""></img>
+        <img src={props.image[0]} className="card_image" alt=""></img>
 
         <div className="card_content">
           <div>

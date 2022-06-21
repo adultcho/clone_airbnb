@@ -1,5 +1,10 @@
 import React from "react";
-import axios from "axios";
+
+
+
+import { useSelector, useDispatch } from "react-redux";
+import { loadPostDB } from "../redux/modules/post";
+
 
 //components
 import Card from "../components/Card";
@@ -8,35 +13,32 @@ import Card from "../components/Card";
 import "../styles/pages/Main.css";
 
 const Main = () => {
-  const [state, setState] = React.useState([]);
+
+const dispatch = useDispatch();
+
+const PostList = useSelector((state) => state.post.list);
+  console.log(PostList);
+
+
 
   React.useEffect(() => {
-    axios
-      .get("http://3.39.223.175/api/posts") // back-end server http://13.125.151.93/api/poststudy
-      .then((response) => {
-        console.log(response);
-        setState(response.data.posts);
-      })
-      .catch((response) => {
-        // console.log(response);
-      });
-  }, []);
-
-  // console.log(state)
+    dispatch(loadPostDB());
+  }, [dispatch]);
+  
 
   return (
     <div className="main">
-      {state &&
-        state.map((state, idx) => (
+      {PostList &&
+        PostList.map((PostList, idx) => (
           <Card
             key={idx}
-            postId={state.postId}
-            image={state.image}
-            location={state.location}
-            length={state.length}
-            date={state.date}
-            star={state.star}
-            price={state.price}
+            postId={PostList.postId}
+            image={PostList.image}
+            location={PostList.location}
+            length={PostList.length}
+            date={PostList.date}
+            star={PostList.star}
+            price={PostList.price}
           />
         ))}
     </div>

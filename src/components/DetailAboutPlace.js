@@ -64,6 +64,7 @@ function DetailAboutPlace() {
     <div className="detail_about_place_container">
       <h1 className="detail_about_place_title">숙소 정보</h1>
       <div className="detail_about_place_infor_text">{inforText}</div>
+
       <div className="detail_about_place_infor_btn_box">
         <button
           className="detail_about_place_infor_more_btn"
@@ -73,6 +74,12 @@ function DetailAboutPlace() {
         </button>
         <span className="material-symbols-outlined">navigate_next</span>
       </div>
+
+
+      <button className="detail_about_place_infor_more_btn" onClick={openModal}>
+        더 보기
+      </button>
+    
 
       {isOpen ? (
         <DetailAboutPlaceModal

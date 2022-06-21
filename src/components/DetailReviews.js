@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import "../styles/components/DetailReviews.css";
 import DetailReviwsCommentList from "./DetailReviwsCommentList";
 import DetailAirCover from "./DetailAirCover";
