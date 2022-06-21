@@ -1,7 +1,11 @@
 .detail_about_place_container {
   border-bottom: 1px solid #d3d3d3;
-  padding-bottom: 24px;
-  margin-bottom: 24px;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.detail_about_place_title {
+  font-size: 28px;
 }
 
 .detail_about_place_infor_text {
@@ -17,7 +21,18 @@
   -webkit-box-orient: vertical;
 }
 
+.detail_about_place_infor_btn_box {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
 .detail_about_place_infor_more_btn {
   border: none;
   background-color: white;
+  font-size: 15px;
+  text-decoration: underline;
+  font-weight: 600;
+  display: flex;
+  margin-right: -5px;
 }

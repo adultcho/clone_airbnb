@@ -5,12 +5,19 @@ import CloseIcon from "@mui/icons-material/Close";
 
 function DetailAirCoverModal({ openModalCallBack }) {
   const [isOpen, setIsOpen] = useState(true);
+
   const closeModal = () => {
     openModalCallBack(isOpen);
   };
 
+  const handleClose = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
+
   return (
-    <div className="detail_air_cover_modal_container">
+    <div className="detail_air_cover_modal_container" onClick={handleClose}>
       <div className="detail_air_cover_modal_window">
         <CloseIcon
           className="detail_air_cover_modal_close_btn"

@@ -36,3 +36,18 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+.detail_reviews_comment_bottom_full {
+  max-width: 80%;
+}
+
+.detail_reviews_comment_more_btn {
+  width: 20%;
+  background-color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-top: 10px;
+  margin-left: -20px;
+}

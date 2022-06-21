@@ -1,6 +1,10 @@
 import React from "react";
+
+
+
 import { useSelector, useDispatch } from "react-redux";
 import { loadPostDB } from "../redux/modules/post";
+
 
 //components
 import Card from "../components/Card";
@@ -9,10 +13,12 @@ import Card from "../components/Card";
 import "../styles/pages/Main.css";
 
 const Main = () => {
-  const dispatch = useDispatch();
 
-  const PostList = useSelector((state) => state.post.list);
+const dispatch = useDispatch();
+
+const PostList = useSelector((state) => state.post.list);
   console.log(PostList);
+
 
 
   React.useEffect(() => {

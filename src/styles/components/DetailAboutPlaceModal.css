@@ -29,6 +29,7 @@ pre {
   background-color: white;
   border-radius: 15px;
   overflow-y: auto;
+  z-index: 9000;
 }
 
 .detail_about_place_modal_window .detail_about_place_modal_close_btn:hover {

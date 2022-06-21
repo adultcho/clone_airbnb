@@ -1,18 +1,35 @@
 .detail_reviews_comment_list_container {
   display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
-  box-sizing: border-box;
   margin-bottom: 20px;
 }
 
 .detail_reviews_category_score {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.detail_reviews_category_box {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.detail_reviews_comments {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.comment {
+  width: 50%;
+  margin-bottom: 10px;
 }
 
 .detail_more_reviews_btn {
+  width: 20%;
   background-color: white;
   padding: 13px 23px;
   border: 1px solid black;
