@@ -1,5 +1,4 @@
 import React from "react";
-
 import axios from "axios";
 
 //styles
@@ -26,7 +25,7 @@ const SignUpModal = (props) => {
         password: password_ref.current.value,
         checkpassword: checkpassword_ref.current.value,
       })
-      .then((response) => { 
+      .then((response) => {
         console.log(response);
         alert(response.data.message); // 회원가입 완료
       })
@@ -53,13 +52,13 @@ const SignUpModal = (props) => {
           <main>
             <form onSubmit={SignUpSubmitHandler}>
               Email
-              <input ref={useremail_ref} required/>
+              <input ref={useremail_ref} required />
               Nicname
-              <input ref={nickname_ref} required/>
+              <input ref={nickname_ref} required />
               Password
-              <input ref={password_ref} required/>
+              <input ref={password_ref} required />
               Check Password
-              <input ref={checkpassword_ref} required/>
+              <input ref={checkpassword_ref} required />
               <button className="close">Sign Up</button>
             </form>
           </main>

@@ -27,7 +27,7 @@ function DetailAirCover() {
       <button onClick={openModal} className="detail_air_cover_more_btn">
         <h4>더 알아보기</h4>
       </button>
-      {console.log(isOpen)}
+      
       {isOpen ? <DetailAirCoverModal openModalCallBack={openModal} /> : null}
     </div>
   );

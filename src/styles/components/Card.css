@@ -10,6 +10,15 @@ img {
   box-sizing: border-box;
 }
 
+.card_content p {
+  margin: 3px 0;
+}
+
+.card_content p:last-child {
+  margin-top: 7px;
+  color: black;
+}
+
 .card_content > div {
   display: flex;
   justify-content: space-between;
@@ -17,7 +26,9 @@ img {
 }
 
 .card_content > div > p {
-  font-size: 20px;
+  font-size: 1rem;
+  margin-top: 7px;
+  color: black;
   font-weight: bold;
 }
 
@@ -36,4 +47,3 @@ img {
   height: 300px;
   object-fit: cover;
 }
-

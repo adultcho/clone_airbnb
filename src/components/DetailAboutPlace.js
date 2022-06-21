@@ -67,8 +67,8 @@ function DetailAboutPlace() {
       <button className="detail_about_place_infor_more_btn" onClick={openModal}>
         더 보기
       </button>
-      {console.log(isOpen)}
-      {console.log(inforText)}
+      {/* {console.log(isOpen)}
+      {console.log(inforText)} */}
       {isOpen ? (
         <DetailAboutPlaceModal
           openModalCallBack={openModal}

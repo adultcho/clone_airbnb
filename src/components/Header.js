@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+//component
 import ProfileModal from "./ProfileModal";
 
+//style, icons
 import "../styles/components/Header.css";
 import { MdAccountCircle } from "react-icons/md";
 import { BsList } from "react-icons/bs";
