@@ -1,5 +1,5 @@
 import React from "react";
-import axios from 'axios';
+import axios from "axios";
 
 //components
 import Card from "../components/Card";
@@ -8,7 +8,6 @@ import Card from "../components/Card";
 import "../styles/pages/Main.css";
 
 const Main = () => {
-
   const [state, setState] = React.useState([]);
 
   React.useEffect(() => {
@@ -21,23 +20,23 @@ const Main = () => {
       .catch((response) => {
         // console.log(response);
       });
-
   }, []);
 
   // console.log(state)
 
   return (
     <div className="main">
-      {state && state.map((state,idx) => (
+      {state &&
+        state.map((state, idx) => (
           <Card
-          key={idx}
-          postId = {state.postId}
-          image = {state.image}
-          location = {state.location}
-          length = {state.length}
-          date = {state.date}
-          star = {state.star}
-          price = {state.price}
+            key={idx}
+            postId={state.postId}
+            image={state.image}
+            location={state.location}
+            length={state.length}
+            date={state.date}
+            star={state.star}
+            price={state.price}
           />
         ))}
     </div>

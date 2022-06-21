@@ -6,6 +6,7 @@
   line-height: 20px;
   box-sizing: border-box;
   padding: 0 80px;
+  margin: 15px 0;
 }
 
 /* 서브헤더 상단 타이틀 부분 */
@@ -28,17 +29,20 @@
   font-weight: 800;
 }
 
-.detail_sub_header_infor_review {
-  text-decoration: underline;
-}
-
-.detail_sub_header_infor_btn {
-  display: flex;
-  width: 10%;
-  justify-content: space-between;
-}
-
 .detail_sub_header_infor_text {
   display: flex;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 800;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.detail_sub_header_reviews_number {
+  text-decoration: underline;
+  margin-left: 8px;
+}
+
+.detail_sub_header_address {
+  text-decoration: underline;
+  margin-left: 10px;
 }

@@ -8,8 +8,8 @@ function DetailAboutPlace() {
   const [inforText, setInforText] = useState("");
 
   const openModal = (callBackParam) => {
-    console.log(callBackParam);
     setIsOpen(!isOpen);
+    document.body.style.overflow = "hidden";
   };
 
   React.useEffect(() => {
@@ -62,13 +62,18 @@ function DetailAboutPlace() {
 
   return (
     <div className="detail_about_place_container">
-      <h1>숙소 정보</h1>
+      <h1 className="detail_about_place_title">숙소 정보</h1>
       <div className="detail_about_place_infor_text">{inforText}</div>
-      <button className="detail_about_place_infor_more_btn" onClick={openModal}>
-        더 보기
-      </button>
-      {console.log(isOpen)}
-      {console.log(inforText)}
+      <div className="detail_about_place_infor_btn_box">
+        <button
+          className="detail_about_place_infor_more_btn"
+          onClick={openModal}
+        >
+          더 보기
+        </button>
+        <span className="material-symbols-outlined">navigate_next</span>
+      </div>
+
       {isOpen ? (
         <DetailAboutPlaceModal
           openModalCallBack={openModal}

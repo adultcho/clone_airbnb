@@ -1,0 +1,12 @@
+.detail_place_infor_container {
+  width: 63%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.detail_place_infor_text_top {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 800;
+}

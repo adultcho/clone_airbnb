@@ -8,7 +8,6 @@ const Card = (props) => {
 
   const navigate = useNavigate();
 
-
   const moveToDetailPage = () => {
     navigate("/detail/" + props.postId);
   };
