@@ -26,8 +26,8 @@ function DetailReviwsCommentList() {
   }, []);
 
   const openModal = (callBackParam) => {
-    console.log(callBackParam);
     setIsOpen(!isOpen);
+    document.body.style.overflow = "hidden";
   };
 
   // 받아온 카테고리별 점수 출력 하기
@@ -51,25 +51,42 @@ function DetailReviwsCommentList() {
         {data
           ? data.category.map((l, index) => {
               return (
-                <DetailReviewsScoreCategory
-                  key={index}
-                  category={l}
-                  score={data.score[index]}
-                />
+                <div className="detail_reviews_category_box">
+                  <DetailReviewsScoreCategory
+                 key={index}
+                    category={l}
+                    score={data.score[index]}
+                  />
+                </div>
               );
             })
           : null}
       </div>
-      <DetailReviewsComment />
-      <DetailReviewsComment />
-      <DetailReviewsComment />
-      <DetailReviewsComment />
-      <DetailReviewsComment />
-      <DetailReviewsComment />
+      <div className="detail_reviews_comments">
+        <div className="comment">
+          <DetailReviewsComment full={true} />
+        </div>
+        <div className="comment">
+          <DetailReviewsComment full={true} />
+        </div>
+        <div className="comment">
+          <DetailReviewsComment full={true} />
+        </div>
+        <div className="comment">
+          <DetailReviewsComment full={true} />
+        </div>
+        <div className="comment">
+          <DetailReviewsComment full={true} />
+        </div>
+        <div className="comment">
+          <DetailReviewsComment full={true} />
+        </div>
+      </div>
       <button className="detail_more_reviews_btn" onClick={openModal}>
         후기 ?개 모두 보기
       </button>
       {isOpen ? <DetailReviewsModal openModalCallBack={openModal} /> : null}
+      {console.log(isOpen)}
     </div>
   );
 }

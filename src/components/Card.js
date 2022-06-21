@@ -8,7 +8,10 @@ const Card = (props) => {
   // console.log(props.image);
 
   const navigate = useNavigate();
+
+
   const postId = props.postId;
+
 
   const moveToDetailPage = () => {
     navigate(`/detail/${postId}`);
