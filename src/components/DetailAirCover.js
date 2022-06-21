@@ -7,7 +7,6 @@ function DetailAirCover() {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = (callBackParam) => {
-    console.log(callBackParam);
     setIsOpen(!isOpen);
   };
 
@@ -27,7 +26,6 @@ function DetailAirCover() {
       <button onClick={openModal} className="detail_air_cover_more_btn">
         <h4>더 알아보기</h4>
       </button>
-      
       {isOpen ? <DetailAirCoverModal openModalCallBack={openModal} /> : null}
     </div>
   );

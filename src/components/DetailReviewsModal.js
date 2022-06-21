@@ -41,6 +41,13 @@ function DetailReviewsModal({ openModalCallBack }) {
   const [isOpen, setIsOpen] = useState(true);
   const closeModal = () => {
     openModalCallBack(isOpen);
+    document.body.style.overflow = "unset";
+  };
+
+  const handleClose = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
   };
 
   // 모달 좌측 평균 평점 및 총 후기 개수
@@ -62,7 +69,7 @@ function DetailReviewsModal({ openModalCallBack }) {
     setData({ category: categoryName, score: categoryScore });
 
   return (
-    <div className="detail_reviews_modal_container">
+    <div className="detail_reviews_modal_container" onClick={handleClose}>
       <div className="detail_reviews_modal_window">
         <CloseIcon
           className="detail_reviews_modal_close_btn"
@@ -89,7 +96,7 @@ function DetailReviewsModal({ openModalCallBack }) {
             {data
               ? data.category.map((l, index) => {
                   return (
-                    <div className="test">
+                    <div className="full">
                       <DetailReviewsScoreCategory
                         key={index}
                         category={l}
@@ -133,16 +140,16 @@ function DetailReviewsModal({ openModalCallBack }) {
             </form>
           </div>
           <div className="detail_reviews_modal_right">
-            <div className="detail_reviews_modal_comment_list">
-              <DetailReviewsComment />
-              <DetailReviewsComment />
-              <DetailReviewsComment />
-              <DetailReviewsComment />
-              <DetailReviewsComment />
-              <DetailReviewsComment />
-              <DetailReviewsComment />
-              <DetailReviewsComment />
-            </div>
+            {/* <div className="detail_reviews_modal_comment_list"> */}
+            <DetailReviewsComment full={false} />
+            <DetailReviewsComment full={false} />
+            <DetailReviewsComment full={false} />
+            <DetailReviewsComment full={false} />
+            <DetailReviewsComment full={false} />
+            <DetailReviewsComment full={false} />
+            <DetailReviewsComment full={false} />
+            <DetailReviewsComment full={false} />
+            {/* </div> */}
           </div>
         </div>
       </div>
