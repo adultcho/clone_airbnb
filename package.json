@@ -24,6 +24,8 @@
     "react-virtualized": "^9.22.3",
     "redux": "^4.2.0",
     "redux-actions": "^2.6.5",
+    "sass": "^1.52.3",
+    "swiper": "6.8.4",
     "web-vitals": "^2.1.0"
   },
   "scripts": {

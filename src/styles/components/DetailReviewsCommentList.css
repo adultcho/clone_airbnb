@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 100%;
   margin-bottom: 20px;
+  
 }
 
 .detail_reviews_category_score {
@@ -19,14 +20,10 @@
 
 .detail_reviews_comments {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(50%, 1fr));
 }
 
-.comment {
-  width: 50%;
-  margin-bottom: 10px;
-}
 
 .detail_more_reviews_btn {
   width: 20%;

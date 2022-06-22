@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 //page components
 import Main from "./pages/Main";
 import Detail from "./pages/Detail";
+import Chat from "./pages/Chat";
 
 import Header from "./components/Header";
 
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/chat" element={<Chat />} />
         <Route path="/detail" element={<Detail />} />
         <Route path="/detail/:postId" element={<Detail />} />
       </Routes>
