@@ -1,29 +1,17 @@
 import React from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 
 //component
 import DetailReviewsComment from "./DetailReviewsComment";
 import DetailReviewsScoreCategory from "./DetailReviewsScoreCategory";
 import DetailReviewsModal from "./DetailReviewsModal";
 
-//redux
-import { useDispatch } from "react-redux";
-import { loadCommentDB } from "../redux/modules/comment";
-
 //style
 import "../styles/components/DetailReviewsCommentList.css";
 
 function DetailReviwsCommentList() {
-  const dispatch = useDispatch();
-  const { postId } = useParams();
-
   // 모달 설정
   const [isOpen, setIsOpen] = useState(false);
-
-  React.useEffect(() => {
-    dispatch(loadCommentDB(postId));
-  }, []);
 
   const openModal = (callBackParam) => {
     setIsOpen(!isOpen);
@@ -53,7 +41,7 @@ function DetailReviwsCommentList() {
               return (
                 <div className="detail_reviews_category_box">
                   <DetailReviewsScoreCategory
-                 key={index}
+                    key={index}
                     category={l}
                     score={data.score[index]}
                   />
@@ -63,24 +51,7 @@ function DetailReviwsCommentList() {
           : null}
       </div>
       <div className="detail_reviews_comments">
-        <div className="comment">
-          <DetailReviewsComment full={true} />
-        </div>
-        <div className="comment">
-          <DetailReviewsComment full={true} />
-        </div>
-        <div className="comment">
-          <DetailReviewsComment full={true} />
-        </div>
-        <div className="comment">
-          <DetailReviewsComment full={true} />
-        </div>
-        <div className="comment">
-          <DetailReviewsComment full={true} />
-        </div>
-        <div className="comment">
-          <DetailReviewsComment full={true} />
-        </div>
+        <DetailReviewsComment full={true} />
       </div>
       <button className="detail_more_reviews_btn" onClick={openModal}>
         후기 ?개 모두 보기

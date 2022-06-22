@@ -10,17 +10,13 @@ function DetailPhotos(props) {
     setIsOpen(!isOpen);
   };
   // console.log(props)
-  
-
 
   return (
     <div className="wrap">
       <div className="detail_photos_container">
         <div className="photos_row_box_1">
           <div className="detail_photos_1">
-
             <img src={props.image[0]} alt="" />
-
           </div>
         </div>
 
@@ -46,7 +42,6 @@ function DetailPhotos(props) {
             </button>
           </div>
         </div>
-
       </div>
       {isOpen ? <DetailPhotosModal openModalCallBack={openModal} /> : null}
     </div>

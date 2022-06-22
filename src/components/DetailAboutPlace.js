@@ -75,11 +75,9 @@ function DetailAboutPlace() {
         <span className="material-symbols-outlined">navigate_next</span>
       </div>
 
-
       <button className="detail_about_place_infor_more_btn" onClick={openModal}>
         더 보기
       </button>
-    
 
       {isOpen ? (
         <DetailAboutPlaceModal

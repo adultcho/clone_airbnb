@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 //components
 import DetailReviewsScoreCategory from "./DetailReviewsScoreCategory";
-import DetailReviewsComment from "./DetailReviewsComment";
 
 //redux
-import { useDispatch } from "react-redux";
-import { addCommentDB } from "../redux/modules/comment";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addCommentDB,
+  updateCommentDB,
+  deleteCommentDB,
+} from "../redux/modules/comment";
 
 //style, icons
 import "../styles/components/DetailReviewsModal.css";
@@ -17,6 +20,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
 
 function DetailReviewsModal({ openModalCallBack }) {
+  const commentList = useSelector((state) => state.comment.list.comments);
+  console.log(commentList);
+
   //postId useParams로 가져오기
   const { postId } = useParams();
   // console.log(postId)
@@ -27,14 +33,18 @@ function DetailReviewsModal({ openModalCallBack }) {
   const comment_ref = React.useRef(null);
 
   //작성 버튼 클릭시 발생 이벤트
+
   const commentSubmit = (e) => {
-    e.preventDefault();
     const comment = { comment: comment_ref.current.value };
     console.log(comment);
-
     // console.log(postId);
-    dispatch(addCommentDB(postId, comment));
+    dispatch(addCommentDB(postId, comment)); //axios post
+
     comment_ref.current.value = "";
+    // setTimeout(() => {
+    //   dispatch(loadCommentDB(postId));
+    // }, 500);
+    // dispatch(loadCommentDB(postId))// axios get
   };
 
   //모달 open
@@ -106,10 +116,7 @@ function DetailReviewsModal({ openModalCallBack }) {
                   );
                 })
               : null}
-            <form
-              onSubmit={commentSubmit}
-              className="detail_reviews_modal_left_input_box"
-            >
+            <div className="detail_reviews_modal_left_input_box">
               <h2>평점</h2>
               <div>
                 <div>
@@ -136,19 +143,55 @@ function DetailReviewsModal({ openModalCallBack }) {
                 ref={comment_ref}
                 placeholder="댓글을 입력해 주세요."
               ></textarea>
-              <button>평점 및 댓글 작성</button>
-            </form>
+              <button onClick={commentSubmit}>평점 및 댓글 작성</button>
+            </div>
           </div>
           <div className="detail_reviews_modal_right">
             {/* <div className="detail_reviews_modal_comment_list"> */}
-            <DetailReviewsComment full={false} />
-            <DetailReviewsComment full={false} />
-            <DetailReviewsComment full={false} />
-            <DetailReviewsComment full={false} />
-            <DetailReviewsComment full={false} />
-            <DetailReviewsComment full={false} />
-            <DetailReviewsComment full={false} />
-            <DetailReviewsComment full={false} />
+
+            {/* <DetailReviewsComment full={false} /> */}
+            {commentList &&
+              commentList.map((commentList, index) => {
+                return (
+                  <div className="detail_reviews_comment">
+                    <div className="detail_reviews_comment_top">
+                      {/* <Avatar /> */}
+                      <div className="detail_reviews_profile_infor">
+                        <div className="detail_reviews_profile_infor_name">
+                          {commentList.nickname}
+                        </div>
+                        <div className="detail_reviews_profile_infor_date">
+                          {commentList.createdAt}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="detail_reviews_comment_bottom_full">
+                      {commentList.comment}
+                      <div>
+                        <button
+                          onClick={() => {
+                            // console.log(commentList.commentId)
+                            const commentId = commentList.commentId;
+                            dispatch(updateCommentDB(postId, commentId));
+                          }}
+                        >
+                          수정
+                        </button>
+                        <button
+                          onClick={() => {
+                            // console.log(commentList.commentId)
+                            const commentId = commentList.commentId;
+                            dispatch(deleteCommentDB(postId, commentId));
+                          }}
+                        >
+                          삭제
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+
             {/* </div> */}
           </div>
         </div>
