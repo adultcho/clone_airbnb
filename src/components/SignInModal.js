@@ -25,6 +25,7 @@ const SignInModal = (props) => {
         localStorage.setItem("user-token", response.data.accessToken);
         localStorage.setItem("user-email", useremail_ref.current.value);
         alert(response.data.message);
+        window.location.reload();
       })
       .catch((error) => {
         alert(error.response.data.errorMessage);

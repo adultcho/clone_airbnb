@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 //styles
 import "../styles/components/ProfileModal.css";
@@ -6,6 +7,7 @@ import SignInModal from "./SignInModal";
 import SignUpModal from "./SignUpModal";
 
 const ProfileModal = (props) => {
+  const navigate = useNavigate();
   // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
   const { open, close } = props;
 
@@ -19,6 +21,11 @@ const ProfileModal = (props) => {
     localStorage.removeItem("user-token");
     localStorage.removeItem("user-email");
     alert("로그아웃 되었습니다.");
+    window.location.reload();
+  };
+
+  const chat = () => {
+    navigate("/chat");
     window.location.reload();
   };
 
@@ -83,6 +90,9 @@ const ProfileModal = (props) => {
           <main>
             <div onClick={logOut}>
               <span>로그아웃</span>
+            </div>
+            <div onClick={chat}>
+              <span>채팅</span>
             </div>
           </main>
           <footer></footer>
