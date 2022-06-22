@@ -2,11 +2,10 @@ import React from "react";
 import "../styles/components/DetailSubHeader.css";
 import StarIcon from "@mui/icons-material/Star";
 
-function DetailSubHeader() {
-  const title = "산블라스섬의 키메라섬 프라이빗 투어 (성인만 참여 가능)";
+function DetailSubHeader({ title, location }) {
   const average = "4.94";
   const review_number = "17";
-  const homeAddress = "Jeokseong-myeon, Danyang-gun, 충청북도, 한국";
+
   return (
     <div className="detail_sub_header_container">
       {/* 서브헤더 상단 타이틀 부분 */}
@@ -23,7 +22,7 @@ function DetailSubHeader() {
           <div className="detail_sub_header_reviews_number">
             후기 {review_number}개
           </div>
-          <div className="detail_sub_header_address">{homeAddress}</div>
+          <div className="detail_sub_header_address">{location}</div>
         </div>
         {/* <div>
           <div>공유하기</div>
