@@ -23,7 +23,7 @@
   padding: 30px;
   background-color: white;
   border-radius: 15px;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .detail_reviews_modal_close_btn:hover {
@@ -54,7 +54,7 @@
 
 .detail_reviews_modal_contents {
   width: 100%;
-  height: 85%;
+  height: 100%;
   display: flex;
   overflow-y: hidden;
 }
@@ -91,7 +91,6 @@
 .detail_reviews_modal_left_input_box > button {
   margin: 15px 0;
   padding: 10px;
-
 }
 
 .detail_reviews_modal_right {
