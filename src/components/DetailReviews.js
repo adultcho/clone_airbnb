@@ -5,13 +5,14 @@ import DetailAirCover from "./DetailAirCover";
 import DetailAboutPlace from "./DetailAboutPlace";
 import DetailPlaceInfor from "./DetailPlaceInfor";
 
-function DetailReviews() {
+function DetailReviews({ detailInfor }) {
+  console.log(detailInfor);
   return (
     <div className="detail_reviews_container">
       <div className="detail_reviews_category_comments">
-        <DetailPlaceInfor />
+        <DetailPlaceInfor detailInfor={detailInfor} />
         <DetailAirCover />
-        <DetailAboutPlace />
+        <DetailAboutPlace detailInforText={detailInfor.description} />
         <DetailReviwsCommentList />
       </div>
     </div>

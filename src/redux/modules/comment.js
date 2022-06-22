@@ -62,11 +62,9 @@ export default function reducer(state = initialState, action = {}) {
       return { list: action.comment_list };
     }
     case ADD: {
-        const new_comment_list = [...state.list, action.comment];
-        return { list: new_comment_list };
-      }
-
-
+      const new_comment_list = [...state.list, action.comment];
+      return { list: new_comment_list };
+    }
 
     default:
       return state;
