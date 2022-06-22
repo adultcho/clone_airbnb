@@ -8,3 +8,29 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 33px;
 }
+
+.category_box {
+  width: 90%;
+  margin: auto;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.category_box > span {
+  color: gray;
+}
+
+.category_box > button {
+  border: none;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.category_box > button:hover {
+  transform: scale(1.2);
+  transition: 0.5s;
+}

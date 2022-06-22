@@ -78,6 +78,8 @@ function DetailReviewsModal({ openModalCallBack }) {
   if (data === undefined)
     setData({ category: categoryName, score: categoryScore });
 
+  const testReload = () => {};
+
   return (
     <div className="detail_reviews_modal_container" onClick={handleClose}>
       <div className="detail_reviews_modal_window">

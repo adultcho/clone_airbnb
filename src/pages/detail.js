@@ -30,9 +30,12 @@ const Detail = () => {
       {detailList &&
         detailList.map((detailList, index) => (
           <>
-            <DetailSubHeader />
+            <DetailSubHeader
+              title={detailList.title}
+              location={detailList.location}
+            />
             <DetailPhotos image={detailList.image} />
-            <DetailReviews />
+            <DetailReviews detailInfor={detailList.details} />
           </>
         ))}
       {/* <DetailSubHeader />
