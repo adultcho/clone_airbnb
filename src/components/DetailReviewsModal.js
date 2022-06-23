@@ -20,9 +20,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
 
 function DetailReviewsModal({ openModalCallBack, detailScore }) {
-  const commentList = useSelector((state) => state.comment.list.comments);
+  const commentList = useSelector((state) => state.comment.list);
   console.log(commentList);
   console.log(detailScore);
+
+  const userEmail = localStorage.getItem("user-email");
 
   //postId useParams로 가져오기
   const { postId } = useParams();
@@ -178,28 +180,31 @@ function DetailReviewsModal({ openModalCallBack, detailScore }) {
                     </div>
                     <div className="detail_reviews_comment_bottom_full">
                       {commentList.comment}
-                      <div>
-                        <button
-                          className="detail_reviews_comment_button"
-                          onClick={() => {
-                            // console.log(commentList.commentId)
-                            const commentId = commentList.commentId;
-                            dispatch(updateCommentDB(postId, commentId));
-                          }}
-                        >
-                          수정
-                        </button>
-                        <button
-                          className="detail_reviews_comment_button"
-                          onClick={() => {
-                            // console.log(commentList.commentId)
-                            const commentId = commentList.commentId;
-                            dispatch(deleteCommentDB(postId, commentId));
-                          }}
-                        >
-                          삭제
-                        </button>
-                      </div>
+
+                      {userEmail === commentList.useremail ? (
+                        <div>
+                          <button
+                            className="detail_reviews_comment_button"
+                            onClick={() => {
+                              // console.log(commentList.commentId)
+                              const commentId = commentList.commentId;
+                              dispatch(updateCommentDB(postId, commentId));
+                            }}
+                          >
+                            수정
+                          </button>
+                          <button
+                            className="detail_reviews_comment_button"
+                            onClick={() => {
+                              // console.log(commentList.commentId)
+                              const commentId = commentList.commentId;
+                              dispatch(deleteCommentDB(postId, commentId));
+                            }}
+                          >
+                            삭제
+                          </button>
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                 );

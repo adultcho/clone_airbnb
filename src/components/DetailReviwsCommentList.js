@@ -20,7 +20,7 @@ function DetailReviwsCommentList({ detailInfor, detailScore }) {
   // 모달 설정
   const [isOpen, setIsOpen] = useState(false);
 
-  const commentList = useSelector((state) => state.comment.list.comments);
+  const commentList = useSelector((state) => state.comment.list);
   console.log(commentList);
 
   React.useEffect(()=>{
