@@ -24,12 +24,16 @@ const Detail = () => {
 
   React.useEffect(() => {
     dispatch(loadDetailDB(postId));
+    dispatch(loadCommentDB(postId));
   }, [dispatch, postId]);
 
   //  후기 개수 가져오기 위해 처음에 한번 호출
-  React.useEffect(() => {
-    dispatch(loadCommentDB(postId));
-  }, [dispatch, postId]);
+  // React.useEffect(() => {
+
+  // }, [dispatch, postId]);
+
+  const commentList = useSelector((state) => state.comment.list);
+  console.log(commentList);
 
   return (
     <div className="detail">
