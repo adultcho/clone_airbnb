@@ -11,12 +11,12 @@ import "../styles/components/Card.css";
 SwiperCore.use([EffectCoverflow, Pagination]);
 
 const Card = (props) => {
-  // const slide_img = props.image;
-  const slide_img = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNTHpu6rS_L4S1twfPvhMNI5Vap8cxvm3cNdL_Iy6oHKR_I_S1ATlpKZjdLILrAYa52vE&usqp=CAU",
-    "http://itimg.chosun.com/sitedata/image/201607/15/2016071585002_2.jpg",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMmF9KupmJluNLyeOXE_6J0nMEU1JuP3OnSiNE2oGAKHIzssYyQq22R1h2w_iCua3fbGs&usqp=CAU",
-  ];
+  const slide_img = props.image;
+  // const slide_img = [
+  //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNTHpu6rS_L4S1twfPvhMNI5Vap8cxvm3cNdL_Iy6oHKR_I_S1ATlpKZjdLILrAYa52vE&usqp=CAU",
+  //   "http://itimg.chosun.com/sitedata/image/201607/15/2016071585002_2.jpg",
+  //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMmF9KupmJluNLyeOXE_6J0nMEU1JuP3OnSiNE2oGAKHIzssYyQq22R1h2w_iCua3fbGs&usqp=CAU",
+  // ];
   // console.log(props.image);
 
   const navigate = useNavigate();
@@ -32,7 +32,6 @@ const Card = (props) => {
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
-          navigation
           centeredSlides={true}
           slidesPerView={"auto"}
           coverflowEffect={{

@@ -52,13 +52,13 @@ const SignUpModal = (props) => {
           <main>
             <form onSubmit={SignUpSubmitHandler}>
               Email
-              <input ref={useremail_ref} required />
+              <input type="email" ref={useremail_ref} required />
               Nicname
-              <input ref={nickname_ref} required />
+              <input type="text" ref={nickname_ref} required />
               Password
-              <input ref={password_ref} required />
+              <input type="password" ref={password_ref} required />
               Check Password
-              <input ref={checkpassword_ref} required />
+              <input type="password" ref={checkpassword_ref} required />
               <button className="close">Sign Up</button>
             </form>
           </main>

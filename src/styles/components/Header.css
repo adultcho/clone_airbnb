@@ -7,7 +7,7 @@
   background-color: white;
   padding: 30px calc(5%);
   border-bottom: 1px solid #ddd;
-  z-index: 1;
+  z-index: 50;
 }
 
 .header_title {

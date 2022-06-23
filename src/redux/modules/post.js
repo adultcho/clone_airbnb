@@ -15,10 +15,10 @@ export const loadPost = (post_list) => {
 };
 
 //midlewares
-export const loadPostDB = (category) => {
+export const loadPostDB = (page, category) => {
   return function (dispatch) {
     axios
-      .get(`${SERVER_URL}?category=${category}`)
+      .get(`${SERVER_URL}/?category=${category}&page=${page}`)
       .then((response) => {
         console.log(response);
         dispatch(loadPost(response.data.posts));
@@ -31,9 +31,15 @@ export const loadPostDB = (category) => {
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case LOAD: {
-      //   console.log(action.post_list);
+      console.log(action.post_list);
+      console.log(state);
       return { list: action.post_list };
     }
+
+    // const addExpenseHandler = (expense) => {
+    //     setExpenses((prevExpenses) => {
+    //       return [expense, ...prevExpenses];
+    //     });
 
     default:
       return state;
