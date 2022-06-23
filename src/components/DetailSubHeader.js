@@ -1,10 +1,13 @@
 import React from "react";
 import "../styles/components/DetailSubHeader.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import StarIcon from "@mui/icons-material/Star";
+import {loadCommentDB} from '../redux/modules/comment'
+import {useParams} from 'react-router-dom'
 
 function DetailSubHeader({ title, location, detailScore }) {
   let average = 0;
+
 
   const commentList = useSelector((state) => state.comment.list.comments);
 
@@ -15,6 +18,7 @@ function DetailSubHeader({ title, location, detailScore }) {
       average = average + parseFloat(l);
       console.log(average);
     });
+
 
   average = average / 6;
 
@@ -32,7 +36,9 @@ function DetailSubHeader({ title, location, detailScore }) {
           <StarIcon />
           {average.toFixed(1)}
           <div className="detail_sub_header_reviews_number">
-            후기 {commentList.length > 0 ? commentList.length : 0}개
+
+            후기 {commentList.length ? commentList.length : 0}개
+
           </div>
           <div className="detail_sub_header_address">{location}</div>
         </div>
