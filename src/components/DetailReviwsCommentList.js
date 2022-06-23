@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 //component
 import DetailReviewsComment from "./DetailReviewsComment";
@@ -9,9 +10,13 @@ import DetailReviewsModal from "./DetailReviewsModal";
 //style
 import "../styles/components/DetailReviewsCommentList.css";
 
-function DetailReviwsCommentList() {
+function DetailReviwsCommentList({ detailInfor, detailScore }) {
+  console.log(detailScore);
   // 모달 설정
   const [isOpen, setIsOpen] = useState(false);
+
+  const commentList = useSelector((state) => state.comment.list.comments);
+  console.log(commentList);
 
   const openModal = (callBackParam) => {
     setIsOpen(!isOpen);
@@ -43,7 +48,7 @@ function DetailReviwsCommentList() {
                   <DetailReviewsScoreCategory
                     key={index}
                     category={l}
-                    score={data.score[index]}
+                    score={detailScore[index]}
                   />
                 </div>
               );
@@ -54,9 +59,14 @@ function DetailReviwsCommentList() {
         <DetailReviewsComment full={true} />
       </div>
       <button className="detail_more_reviews_btn" onClick={openModal}>
-        후기 ?개 모두 보기
+        후기 {commentList.length ? commentList.length : 0}개 모두 보기
       </button>
-      {isOpen ? <DetailReviewsModal openModalCallBack={openModal} /> : null}
+      {isOpen ? (
+        <DetailReviewsModal
+          openModalCallBack={openModal}
+          detailScore={detailScore}
+        />
+      ) : null}
       {console.log(isOpen)}
     </div>
   );
