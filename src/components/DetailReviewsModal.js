@@ -114,7 +114,8 @@ function DetailReviewsModal({ openModalCallBack, detailScore }) {
         <div className="detail_reviews_modal_contents">
           <div className="detail_reviews_modal_left">
             {data
-              ?data.category&& data.category.map((l, index) => {
+              ? data.category &&
+                data.category.map((l, index) => {
                   return (
                     <div className="full">
                       <DetailReviewsScoreCategory
@@ -179,6 +180,7 @@ function DetailReviewsModal({ openModalCallBack, detailScore }) {
                       {commentList.comment}
                       <div>
                         <button
+                          className="detail_reviews_comment_button"
                           onClick={() => {
                             // console.log(commentList.commentId)
                             const commentId = commentList.commentId;
@@ -188,6 +190,7 @@ function DetailReviewsModal({ openModalCallBack, detailScore }) {
                           수정
                         </button>
                         <button
+                          className="detail_reviews_comment_button"
                           onClick={() => {
                             // console.log(commentList.commentId)
                             const commentId = commentList.commentId;
