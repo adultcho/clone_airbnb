@@ -16,10 +16,10 @@ export const loadComment = (comment_list) => {
   return { type: LOAD, comment_list };
 };
 
-// export const addComment = (comment) => {
-//   console.log(comment);
-//   return { type: ADD, comment };
-// };
+export const addComment = (comment) => {
+  console.log(comment);
+  return { type: ADD, comment };
+};
 
 export const updateComment = (comment_index, comment) => {
   console.log(comment_index, comment);
@@ -38,7 +38,7 @@ export const loadCommentDB = (postId) => {
       .get(`${SERVER_URL}/${postId}/comments`)
       .then((response) => {
         console.log(response);
-        dispatch(loadComment(response.data));
+        dispatch(loadComment(response.data.comments));
       })
       .catch((response) => console.log(response));
   };
@@ -51,8 +51,9 @@ export const addCommentDB = (postId, comment) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        // console.log(response);
-        dispatch(loadCommentDB(postId));
+        console.log(response);
+        dispatch(addComment(response.data.createComment));
+        
       });
   };
 };
@@ -100,10 +101,11 @@ export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case LOAD: {
       console.log(action.comment_list);
-      return { list: action.comment_list };
+      return { list: [...state.list,  ...action.comment_list] };
     }
     case ADD: {
-      break;
+        console.log(action);
+        return { list: [ action.comment, ...state.list] }
     }
     case UPDATE: {
       break;
