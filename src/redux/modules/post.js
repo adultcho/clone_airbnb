@@ -15,10 +15,10 @@ export const loadPost = (post_list) => {
 };
 
 //midlewares
-export const loadPostDB = (page, category) => {
+export const loadPostDB = (category) => {
   return function (dispatch) {
     axios
-      .get(`${SERVER_URL}/?category=${category}&page=${page}`)
+      .get(`${SERVER_URL}/?category=${category}`)
       .then((response) => {
         console.log(response);
         dispatch(loadPost(response.data.posts));
