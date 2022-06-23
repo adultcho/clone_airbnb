@@ -55,14 +55,14 @@ const Main = () => {
   //   }
   // }, [category]);
 
-  React.useEffect(() => {
-    if (inView) {
-      console.log("첫 로딩 이후 무한 스크롤");
-      setPage(page + 1);
-      dispatch(loadPostDB(page, category));
-    }
-  }, [category, inView]);
-  console.log(page);
+  // React.useEffect(() => {
+  //   if (inView) {
+  //     console.log("첫 로딩 이후 무한 스크롤");
+  //     setPage(page + 1);
+  //     dispatch(loadPostDB(page, category));
+  //   }
+  // }, [category, inView]);
+  // console.log(page);
 
   // console.log(category)
 
@@ -181,7 +181,7 @@ const Main = () => {
               price={PostList.price}
             />
           ))}
-        <div ref={ref} />
+        {/* <div ref={ref} /> */}
       </div>
     </>
   );

@@ -114,7 +114,7 @@ function DetailReviewsModal({ openModalCallBack, detailScore }) {
         <div className="detail_reviews_modal_contents">
           <div className="detail_reviews_modal_left">
             {data
-              ? data.category.map((l, index) => {
+              ?data.category&& data.category.map((l, index) => {
                   return (
                     <div className="full">
                       <DetailReviewsScoreCategory
