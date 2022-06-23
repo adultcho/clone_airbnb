@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 
+//무한 스크롤
+import { useInView } from "react-intersection-observer";
+
+//redux
 import { useSelector, useDispatch } from "react-redux";
 import { loadPostDB } from "../redux/modules/post";
 
@@ -19,21 +23,50 @@ import VillaIcon from "@mui/icons-material/Villa";
 import KayakingIcon from "@mui/icons-material/Kayaking";
 import WbShadeIcon from "@mui/icons-material/WbShade";
 
-//  무한 스크롤
+
 import { SecurityUpdateGood } from "@mui/icons-material";
 
+
 const Main = () => {
-  //  observer
 
   const dispatch = useDispatch();
+  const [ref, inView] = useInView();
+  const [page, setPage] = React.useState(0);
 
   const PostList = useSelector((state) => state.post.list);
+  console.log(PostList);
+
   const [category, setCategory] = useState("섬");
 
   React.useEffect(() => {
     dispatch(loadPostDB(category));
+
   }, [category]);
   console.log(category);
+
+
+  console.log(inView);
+
+  // React.useEffect(() => {
+  //   if(PostList.length === 0){
+  //     console.log('첫 포스트 로딩');
+  //     dispatch(loadPostDB(category));
+  //     return;
+  //   }
+  // }, [category]);
+
+  React.useEffect(() => {
+    if (inView) {
+      console.log("첫 로딩 이후 무한 스크롤");
+      setPage(page + 1);
+      dispatch(loadPostDB(page, category));
+    }
+  }, [category, inView]);
+  console.log(page);
+
+  // console.log(category)
+
+
   return (
     <>
       <div className="category_box">
@@ -43,7 +76,10 @@ const Main = () => {
             setCategory("섬");
           }}
         >
-          <span class="material-symbols-outlined">houseboat</span>섬
+
+
+          <span className="material-symbols-outlined">houseboat</span>섬
+
         </button>
         <button
           value="국립공원"
@@ -87,7 +123,9 @@ const Main = () => {
             setCategory("초소형주택");
           }}
         >
-          <span class="material-symbols-outlined">gite</span>
+
+          <span className="material-symbols-outlined">gite</span>
+
           초소형주택
         </button>
         <button
@@ -105,7 +143,9 @@ const Main = () => {
             setCategory("캠핑장");
           }}
         >
-          <span class="material-symbols-outlined">camping</span>
+
+          <span className="material-symbols-outlined">camping</span>
+
           캠핑장
         </button>
         <button
@@ -141,6 +181,7 @@ const Main = () => {
               price={PostList.price}
             />
           ))}
+        <div ref={ref} />
       </div>
     </>
   );

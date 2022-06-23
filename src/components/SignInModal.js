@@ -48,9 +48,9 @@ const SignInModal = (props) => {
           <main>
             <form onSubmit={SignInSubmitHandler}>
               Email
-              <input ref={useremail_ref} required />
+              <input type="email" ref={useremail_ref} required />
               Password
-              <input ref={password_ref} required />
+              <input type="password" ref={password_ref} required />
               <button className="close">log In</button>
             </form>
           </main>

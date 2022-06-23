@@ -11,9 +11,7 @@ function DetailPhotos(props) {
     document.body.style.overflow = "hidden";
   };
 
-
   return (
-    
     <div className="detail_photos_container">
       <div className="detail_photos_1">
         <img src={props.image[0]} alt="" />
