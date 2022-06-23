@@ -23,15 +23,12 @@ import VillaIcon from "@mui/icons-material/Villa";
 import KayakingIcon from "@mui/icons-material/Kayaking";
 import WbShadeIcon from "@mui/icons-material/WbShade";
 
-
 import { SecurityUpdateGood } from "@mui/icons-material";
 
-
 const Main = () => {
-
   const dispatch = useDispatch();
-  const [ref, inView] = useInView();
-  const [page, setPage] = React.useState(0);
+  // const [ref, inView] = useInView();
+  // const [page, setPage] = React.useState(0);
 
   const PostList = useSelector((state) => state.post.list);
   console.log(PostList);
@@ -40,12 +37,10 @@ const Main = () => {
 
   React.useEffect(() => {
     dispatch(loadPostDB(category));
-
   }, [category]);
   console.log(category);
 
-
-  console.log(inView);
+  // console.log(inView);
 
   // React.useEffect(() => {
   //   if(PostList.length === 0){
@@ -55,17 +50,16 @@ const Main = () => {
   //   }
   // }, [category]);
 
-  React.useEffect(() => {
-    if (inView) {
-      console.log("첫 로딩 이후 무한 스크롤");
-      setPage(page + 1);
-      dispatch(loadPostDB(page, category));
-    }
-  }, [category, inView]);
-  console.log(page);
+  // React.useEffect(() => {
+  //   if (inView) {
+  //     console.log("첫 로딩 이후 무한 스크롤");
+  //     setPage(page + 1);
+  //     dispatch(loadPostDB(page, category));
+  //   }
+  // }, [category, inView]);
+  // console.log(page);
 
   // console.log(category)
-
 
   return (
     <>
@@ -76,10 +70,7 @@ const Main = () => {
             setCategory("섬");
           }}
         >
-
-
           <span className="material-symbols-outlined">houseboat</span>섬
-
         </button>
         <button
           value="국립공원"
@@ -123,9 +114,7 @@ const Main = () => {
             setCategory("초소형주택");
           }}
         >
-
           <span className="material-symbols-outlined">gite</span>
-
           초소형주택
         </button>
         <button
@@ -143,9 +132,7 @@ const Main = () => {
             setCategory("캠핑장");
           }}
         >
-
           <span className="material-symbols-outlined">camping</span>
-
           캠핑장
         </button>
         <button
@@ -181,7 +168,7 @@ const Main = () => {
               price={PostList.price}
             />
           ))}
-        <div ref={ref} />
+        {/* <div ref={ref} /> */}
       </div>
     </>
   );

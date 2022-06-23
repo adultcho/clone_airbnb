@@ -12,7 +12,7 @@ pre {
   bottom: 0;
   right: 0;
   background-color: rgb(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 100;
 }
 
 .detail_about_place_modal_window {

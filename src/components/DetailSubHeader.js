@@ -10,10 +10,11 @@ function DetailSubHeader({ title, location, detailScore }) {
 
   console.log(commentList);
 
-  detailScore.map((l, index) => {
-    average = average + parseFloat(l);
-    console.log(average);
-  });
+  detailScore &&
+    detailScore.map((l, index) => {
+      average = average + parseFloat(l);
+      console.log(average);
+    });
 
   average = average / 6;
 
@@ -31,7 +32,7 @@ function DetailSubHeader({ title, location, detailScore }) {
           <StarIcon />
           {average.toFixed(1)}
           <div className="detail_sub_header_reviews_number">
-            후기 {commentList.length}개
+            후기 {commentList.length > 0 ? commentList.length : 0}개
           </div>
           <div className="detail_sub_header_address">{location}</div>
         </div>
