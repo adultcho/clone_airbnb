@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 //무한 스크롤
@@ -23,7 +23,12 @@ import VillaIcon from "@mui/icons-material/Villa";
 import KayakingIcon from "@mui/icons-material/Kayaking";
 import WbShadeIcon from "@mui/icons-material/WbShade";
 
+
+import { SecurityUpdateGood } from "@mui/icons-material";
+
+
 const Main = () => {
+
   const dispatch = useDispatch();
   const [ref, inView] = useInView();
   const [page, setPage] = React.useState(0);
@@ -35,7 +40,10 @@ const Main = () => {
 
   React.useEffect(() => {
     dispatch(loadPostDB(category));
-  }, [dispatch, category]);
+
+  }, [category]);
+  console.log(category);
+
 
   console.log(inView);
 
@@ -58,6 +66,7 @@ const Main = () => {
 
   // console.log(category)
 
+
   return (
     <>
       <div className="category_box">
@@ -67,7 +76,10 @@ const Main = () => {
             setCategory("섬");
           }}
         >
+
+
           <span className="material-symbols-outlined">houseboat</span>섬
+
         </button>
         <button
           value="국립공원"
@@ -111,7 +123,9 @@ const Main = () => {
             setCategory("초소형주택");
           }}
         >
+
           <span className="material-symbols-outlined">gite</span>
+
           초소형주택
         </button>
         <button
@@ -129,7 +143,9 @@ const Main = () => {
             setCategory("캠핑장");
           }}
         >
+
           <span className="material-symbols-outlined">camping</span>
+
           캠핑장
         </button>
         <button
