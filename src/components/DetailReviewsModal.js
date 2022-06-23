@@ -19,9 +19,10 @@ import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
 
-function DetailReviewsModal({ openModalCallBack }) {
+function DetailReviewsModal({ openModalCallBack, detailScore }) {
   const commentList = useSelector((state) => state.comment.list.comments);
   console.log(commentList);
+  console.log(detailScore);
 
   //postId useParams로 가져오기
   const { postId } = useParams();
@@ -61,10 +62,17 @@ function DetailReviewsModal({ openModalCallBack }) {
   };
 
   // 모달 좌측 평균 평점 및 총 후기 개수
-  const averageScore = 4.85;
-  const totalReviews = 85;
+  let averageScore = 0;
+  detailScore &&
+    detailScore.map((l, index) => {
+      averageScore = averageScore + parseFloat(l);
+    });
 
+  averageScore = averageScore / 6;
+
+  console.log(averageScore);
   const [data, setData] = useState();
+
   const categoryName = [
     "청결도",
     "정확성",
@@ -91,7 +99,7 @@ function DetailReviewsModal({ openModalCallBack }) {
           <div className="detail_reviews_modal_top_left">
             <div className="detail_reviews_modal_left_title_box">
               <StarIcon />
-              {averageScore} 후기 {totalReviews}개
+              {averageScore.toFixed(1)} 후기 {commentList.length}개
             </div>
           </div>
 
@@ -112,14 +120,14 @@ function DetailReviewsModal({ openModalCallBack }) {
                       <DetailReviewsScoreCategory
                         key={index}
                         category={l}
-                        score={data.score[index]}
+                        score={detailScore[index]}
                       />
                     </div>
                   );
                 })
               : null}
             <div className="detail_reviews_modal_left_input_box">
-              <h2>평점</h2>
+              {/* <h2>평점</h2>
               <div>
                 <div>
                   <span>청결도</span> ★★★★★
@@ -139,7 +147,7 @@ function DetailReviewsModal({ openModalCallBack }) {
                 <div>
                   <span>가격대비 만족도</span> ★★★★★
                 </div>
-              </div>
+              </div> */}
               <h2>댓글</h2>
               <textarea
                 ref={comment_ref}
