@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const Chat = () => {
   return (
     <div className="chat">
@@ -9,4 +8,4 @@ const Chat = () => {
   );
 };
 
-export default Chat
+export default Chat;
