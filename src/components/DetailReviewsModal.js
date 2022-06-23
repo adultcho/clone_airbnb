@@ -180,6 +180,7 @@ function DetailReviewsModal({ openModalCallBack, detailScore }) {
                     </div>
                     <div className="detail_reviews_comment_bottom_full">
                       {commentList.comment}
+
                       {userEmail === commentList.useremail ? (
                         <div>
                           <button
